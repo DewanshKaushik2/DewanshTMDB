@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.tmdbapp.data.DataRepository;
 import com.tmdbapp.models.MovieModel;
-
+//git remote add origin https://github.com/DewanshKaushik2/DewanshTMDB.git
+//git remote set-url origin https://github.com/DewanshKaushik2/DewanshTMDB.git
 public class MyDetailsViewModel extends ViewModel {
     private final DataRepository repository;
     private final MediatorLiveData<MovieModel> mediator = new MediatorLiveData<>();

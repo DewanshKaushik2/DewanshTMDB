@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollview_movie_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logan_background"
+    tools:context=".views.MovieDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout_movie_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/logan_background"
+            android:backgroundTint="#47403E82"
+            android:backgroundTintMode="src_over">
+
+            <LinearLayout
+                android:id="@+id/top_rated_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:alpha="0.72"
+                android:gravity="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/back_button_movie_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:contentDescription="@string/back_button_movie_details_description"
+                    android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+                <Space
+                    android:layout_width="3dp"
+                    android:layout_height="0dp" />
+
+                <TextView
+                    android:id="@+id/from_where_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_text_regular"
+                    android:lineSpacingExtra="20dp"
+                    android:lineSpacingMultiplier="2.5"
+                    android:text="@string/back_text_movie_details"
+                    android:textColor="#FFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rating_movie_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="5dp"
+                android:gravity="center"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/sf_compact_display_medium"
+                    android:lineSpacingExtra="40dp"
+                    android:lineSpacingMultiplier="2.5"
+                    android:text="@string/vote_average"
+                    android:textColor="#FFF"
+                    android:textSize="43sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/sf_compact_display_thin"
+                    android:lineSpacingExtra="40dp"
+                    android:lineSpacingMultiplier="2.5"
+                    android:text="@string/over_ten"
+                    android:textColor="#FFF"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/movie_details_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:elevation="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rating_movie_details">
+
+                <ImageView
+                    android:id="@+id/poster_image"
+                    android:layout_width="126dp"
+                    android:layout_height="186dp"
+                    android:contentDescription="@string/poster_image_description"
+                    android:elevation="24dp"
+                    android:src="@drawable/logan_poster" />
+
+                <Space
+                    android:layout_width="5dp"
+                    android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="start"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:fontFamily="@font/sf_compact_display_medium"
+                        android:lineSpacingExtra="19dp"
+                        android:lineSpacingMultiplier="2.5"
+                        android:text="@string/featured_crew"
+                        android:textColor="#FFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/first_producer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_compact_display_medium"
+                                android:text="@string/director_name"
+                                android:textColor="#FFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/role_first_producer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_compact_display_medium"
+                                android:text="@string/director_role"
+                                android:textColor="#FFF"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                tools:ignore="SmallSp" />
+
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="5dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/second_producer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_compact_display_medium"
+                                android:text="@string/codirector_name"
+                                android:textColor="#FFF"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/role_second_producer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sf_compact_display_medium"
+                                android:text="@string/codirector_role"
+                                android:textColor="#FFF"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                tools:ignore="SmallSp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp" />
+
+                    <TextView
+                        android:id="@+id/genre_time_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.58"
+                        android:fontFamily="@font/sf_compact_display_thin"
+                        android:maxWidth="250dp"
+                        android:text="@string/genre_time_date"
+                        android:textColor="#FFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/constraint_layout_movie_details">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/title_movie"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_pro_text_regular"
+                            android:maxWidth="250dp"
+                            android:text="@string/movie_title"
+                            android:textColor="#FFFFFF"
+                            android:textSize="34sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/release_year"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sf_compact_display_medium"
+                            android:text="@string/release_date"
+                            android:textColor="#FFFFFF"
+                            android:textSize="19sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/bookmark_favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45dp"
+                        android:contentDescription="@string/bookmark_black_description"
+                        android:src="@drawable/ic_bookmark_black_24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/framelayout_video"
+                    android:layout_width="345dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="20dp">
+
+                    <!--<com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                            android:id="@+id/video_trailer"
+                            app:showFullScreenButton="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>-->
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:id="@+id/video_trailer"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/sf_compact_display_thin"
+                    android:gravity="start"
+                    android:text="@string/overview"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/overview_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/sf_compact_display_medium"
+                    android:gravity="start"
+                    android:maxWidth="345dp"
+                    android:text="@string/overview_text"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sf_compact_display_thin"
+                        android:gravity="start"
+                        android:text="@string/cast"
+                        android:textColor="#FFF"
+                        android:textSize="14sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_cast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</ScrollView>

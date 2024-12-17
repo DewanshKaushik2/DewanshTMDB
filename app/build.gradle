@@ -1,0 +1,147 @@
+
+apply plugin: 'com.android.application'
+
+android {
+    def project_dir = 'app'
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.tmdbapp"
+        minSdkVersion 23
+        targetSdkVersion 28
+        //renderscriptTargetApi 18
+        //renderscriptSupportModeEnabled true
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ['room.schemaLocation': "$project_dir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // Temporary fix until alpha10
+    packagingOptions {
+//        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/com.android.tools/proguard/coroutines.pro'
+
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    sourceSets {
+        test {
+            java.srcDirs = ['src/test/java', 'src/main/java']
+        }
+    }
+}
+
+dependencies {
+    testImplementation project(path: ':app')
+    testImplementation project(':app')
+
+    androidTestImplementation project(':app')
+    def preference_version = '1.1.0'
+    def room_version = '2.2.5'
+    def lifecycle_version = '2.2.0'
+    def paging_version = '2.1.2'
+    def hamcrest_version = '1.3'
+    def mockito_version = '2.7.6'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //AndroidX
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //   implementation 'androidx.material:material:1.9.0' // If you want Material Design
+
+    //Retrofit 2
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    //RxJava / RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.0.8'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //Preference
+    implementation "androidx.preference:preference:$preference_version"
+
+    //ExifInterface
+    implementation 'androidx.exifinterface:exifinterface:1.1.0'
+
+    //Room
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$lifecycle_version"
+
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-rxjava2:$paging_version"
+
+    //OkHttp3 Logging Interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    //ElevationImageView
+    //implementation 'com.qhutch.elevationimageview:elevationimageview:2.4'
+
+    //Blurry
+    //implementation 'jp.wasabeef:blurry:3.0.0'
+
+    //Jetbrains Annotations
+    implementation 'org.jetbrains:annotations:16.0.2'
+
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    //SwipeRefreshLayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+
+    //YoutubePlayerView
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0'
+
+    //UNIT TESTS
+    testImplementation 'junit:junit:4.12'
+    testImplementation "androidx.room:room-testing:$room_version"
+    testImplementation "androidx.paging:paging-common:$paging_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+    testImplementation "org.mockito:mockito-core:4.0.0"
+
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //new depedencies
+    compile 'com.path:android-priority-jobqueue:1.1.2'
+
+    // AndroidX Testing
+    implementation "androidx.arch.core:core-testing:2.2.0"  // For LiveData testing
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"  // To work with LiveData
+
+    // Mockito for mocking dependencies
+    testImplementation "org.mockito:mockito-inline:4.8.0" // Mockito inline to mock final classes
+
+    // JUnit
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.7.1" // JUnit 5 (optional)
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.7.1" // JUnit 5 Engine (optional)
+
+    // Test runner
+    testImplementation "androidx.test.ext:junit:1.1.3"  // For using JUnit in Android
+
+    // Truth (Optional, but great for assertions)
+    testImplementation "com.google.truth:truth:1.1.3"
+    // KOTLIN
+    //implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50'
+}

@@ -35,6 +35,16 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+//    subprojects {
+//        project.configurations.all {
+//            resolutionStrategy.eachDependency { details ->
+//                if (details.requested.group == 'com.android.support'
+//                        && !details.requested.name.contains('multidex') ) {
+//                    details.useVersion "version which should be used - in your case 26.0.0-beta2"
+//                }
+//            }
+//        }
+//    }
     sourceSets {
         test {
             java.srcDirs = ['src/test/java', 'src/main/java']
@@ -70,7 +80,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.0.8'
 
     //Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.squareup.picasso:picasso:2.8'
 
     //RecyclerView
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
@@ -121,7 +131,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core:4.0.0"
 
     androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
     //new depedencies
     compile 'com.path:android-priority-jobqueue:1.1.2'
@@ -138,10 +148,26 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.7.1" // JUnit 5 Engine (optional)
 
     // Test runner
-    testImplementation "androidx.test.ext:junit:1.1.3"  // For using JUnit in Android
+    testImplementation "androidx.test.ext:junit:1.1.5"  // For using JUnit in Android
 
     // Truth (Optional, but great for assertions)
     testImplementation "com.google.truth:truth:1.1.3"
     // KOTLIN
     //implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.3.50'
+
+    //new
+
+
+    // Robolectric for testing Android components in isolation
+    testImplementation 'org.robolectric:robolectric:4.9'
+
+    // Mockito Android for mocking Android components (if necessary)
+    testImplementation 'org.mockito:mockito-android:4.5.1'
+
+    // AndroidX Test - for working with LiveData and ViewModel in tests
+    testImplementation 'androidx.lifecycle:lifecycle-livedata-core-ktx:2.6.1'
+    testImplementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+
+    // Picasso testing dependencies
+    testImplementation 'com.squareup.picasso:picasso:2.8' // or use any latest version of Picasso
 }

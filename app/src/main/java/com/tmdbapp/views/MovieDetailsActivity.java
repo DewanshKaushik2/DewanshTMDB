@@ -35,7 +35,6 @@ import com.tmdbapp.viewmodels.ViewModelFactory;
 
 import java.util.Arrays;
 
-// https://github.com/PandH4cker/TMDB-App
 public class MovieDetailsActivity extends BaseActivity {
 
     private static final String TAG = MovieDetailsActivity.class.getSimpleName();
@@ -170,12 +169,6 @@ public class MovieDetailsActivity extends BaseActivity {
         genres = new StringBuilder(genres.substring(0, genres.length() - 2));
 
         this.genreTimeDate.setText(String.format("%s | 2h 17min | %s", genres, DateUtils.formatDate(this.movie.getReleaseDate())));
-//        this.youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
-//            @Override
-//            public void onReady(@NotNull YouTubePlayer youTubePlayer) {
-//                youTubePlayer.cueVideo(movie.getYoutubeKeyVideo(), 0);
-//            }
-//        });
 
         //Log.d(TAG, Arrays.toString(movie.getActorsFullPosterPaths()));
         CastAdapter adapter = new CastAdapter(this, Arrays.asList(movie.getActorsFullPosterPaths()));
